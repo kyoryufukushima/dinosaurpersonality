@@ -63,7 +63,7 @@ export default function App() {
     <div className="min-h-screen font-sans text-slate-800 selection:bg-blue-100">
       <DinoBackground />
       
-      <main className="relative z-10 min-h-screen flex items-center justify-center py-12">
+      <main className="relative z-10 min-h-screen flex items-center justify-center py-12 pb-24">
         <AnimatePresence mode="wait">
           {state === "landing" && (
             <motion.div
@@ -108,6 +108,13 @@ export default function App() {
           )}
         </AnimatePresence>
       </main>
+
+      {/* 免責事項フッター (目立たないように、でも一応わかるように配置) */}
+      <footer className="relative z-20 w-full text-center py-6 px-4 pb-8 pointer-events-none select-none">
+        <p className="max-w-xl mx-auto text-[11px] md:text-xs text-slate-500/60 tracking-wider">
+          当サイトに掲載している内容は、すべてフィクションです。
+        </p>
+      </footer>
 
     </div>
   );

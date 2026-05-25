@@ -48,14 +48,6 @@ export function Landing({ onStart }: LandingProps) {
             style={{
               filter: 'invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6))',
             }}
-            onError={(e) => {
-              const target = e.currentTarget;
-              if (!target.src.includes('title2.jpg')) {
-                // Fallback to original jpg, but apply soft brightness if needed
-                target.src = getAssetUrl('title2.jpg');
-                target.style.filter = 'drop-shadow(0 0 12px rgba(255, 255, 255, 0.9))';
-              }
-            }}
           />
           {/* Subtle Ambient Radial Glow behind the title text to enhance readability and premium exhibit feel */}
           <div className="absolute inset-x-8 top-12 bottom-12 bg-blue-500/10 blur-[60px] rounded-full -z-10 scale-125 pointer-events-none" />
