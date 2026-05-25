@@ -37,22 +37,29 @@ export function Landing({ onStart }: LandingProps) {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 mb-6 flex flex-col items-center justify-center w-full max-w-lg"
+        className="relative z-10 mb-8 flex flex-col items-center justify-center w-full max-w-lg"
       >
         <div className="relative group p-4 w-full">
+          {/* Main Title Logo with beautiful white invert effect and soft luxury glow, making it perfectly visible and high-end on dark backdrops */}
           <img 
             src={getAssetUrl('title2.png')} 
             alt="大恐竜展" 
-            className="w-full max-w-xs md:max-w-md mx-auto h-auto object-contain select-none"
+            className="w-full max-w-xs md:max-w-md mx-auto h-auto object-contain select-none transition-transform duration-500 group-hover:scale-[1.03]"
+            style={{
+              filter: 'invert(1) drop-shadow(0 0 12px rgba(255, 255, 255, 0.85)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6))',
+            }}
             onError={(e) => {
               const target = e.currentTarget;
               if (!target.src.includes('title2.jpg')) {
+                // Fallback to original jpg, but apply soft brightness if needed
                 target.src = getAssetUrl('title2.jpg');
+                target.style.filter = 'drop-shadow(0 0 12px rgba(255, 255, 255, 0.9))';
               }
             }}
           />
-          {/* Subtle Ambient Glow behind the title text */}
-          <div className="absolute inset-0 bg-blue-600/10 blur-3xl rounded-full -z-10 scale-110 pointer-events-none" />
+          {/* Subtle Ambient Radial Glow behind the title text to enhance readability and premium exhibit feel */}
+          <div className="absolute inset-x-8 top-12 bottom-12 bg-blue-500/10 blur-[60px] rounded-full -z-10 scale-125 pointer-events-none" />
+          <div className="absolute inset-x-12 top-16 bottom-16 bg-white/5 blur-[40px] rounded-full -z-10 scale-110 pointer-events-none" />
         </div>
       </motion.div>
 
