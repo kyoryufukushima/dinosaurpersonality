@@ -4,7 +4,6 @@ export type DinosaurType =
   | "Zavacephale" 
   | "Ankylosaurus" 
   | "Stegosaurus" 
-  | "Iguanodon" 
   | "Megalosaurus" 
   | "Futabasaurus";
 
