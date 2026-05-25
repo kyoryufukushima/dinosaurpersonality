@@ -9,7 +9,7 @@ export function Landing({ onStart }: LandingProps) {
   const getAssetUrl = (path: string) => {
     const base = import.meta.env.BASE_URL;
     const normalizedBase = base.endsWith('/') ? base : `${base}/`;
-    return `${normalizedBase}${path.replace(/^\//, '')}`;
+    return `${normalizedBase}${path.replace(/^\//, '')}?v=20260525`;
   };
 
   return (
@@ -44,6 +44,12 @@ export function Landing({ onStart }: LandingProps) {
             src={getAssetUrl('title2.png')} 
             alt="大恐竜展" 
             className="w-full max-w-xs md:max-w-md mx-auto h-auto object-contain select-none"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (!target.src.includes('title2.jpg')) {
+                target.src = getAssetUrl('title2.jpg');
+              }
+            }}
           />
           {/* Subtle Ambient Glow behind the title text */}
           <div className="absolute inset-0 bg-blue-600/10 blur-3xl rounded-full -z-10 scale-110 pointer-events-none" />
